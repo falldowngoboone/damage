@@ -1,0 +1,9 @@
+.wrapper {
+  grid-area: workpane;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 256px;
+  background: #222;
+  padding: 16px;
+  color: #eee;
+}
