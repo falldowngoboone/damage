@@ -4,7 +4,7 @@ import { Router, Redirect } from "@reach/router";
 
 import styles from "./WorkPane.module.scss";
 
-export default function WorkPane({ pane }) {
+export default function WorkPane() {
   return (
     <div className={styles.wrapper}>
       <Router>
