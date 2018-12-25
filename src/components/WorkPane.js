@@ -4,12 +4,12 @@ import { Router, Redirect } from "@reach/router";
 
 import styles from "./WorkPane.module.scss";
 
-export default function WorkPane() {
+export default function WorkPane({ setInvoiceData }) {
   return (
     <div className={styles.wrapper}>
       <Router>
         <Redirect from="/" to={"/new-invoice"} />
-        <NewInvoicePane path="/new-invoice" default />
+        <NewInvoicePane path="/new-invoice" onData={setInvoiceData} default />
         <Search path="/search" />
         <Clients path="/clients" />
       </Router>

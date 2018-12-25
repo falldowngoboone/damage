@@ -6,4 +6,8 @@
   background: #222;
   padding: 16px;
   color: #eee;
+
+  @media print {
+    display: none;
+  }
 }

@@ -7,11 +7,15 @@ import "./App.css";
 
 function App() {
   const [pane, setPane] = useState("newInvoice");
+  const [invoiceData, setInvoiceData] = useState({});
+
+  const setData = data => data !== invoiceData && setInvoiceData(data);
+
   return (
     <div className="App">
       <ToolBar setPane={setPane} />
-      <WorkPane pane={pane} />
-      <Preview />
+      <WorkPane pane={pane} setInvoiceData={setData} />
+      <Preview data={invoiceData} />
     </div>
   );
 }

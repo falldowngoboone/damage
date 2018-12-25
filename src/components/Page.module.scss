@@ -1,0 +1,28 @@
+.wrapper {
+  padding-top: calc(11 / 8.5 * 100%);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  position: relative;
+
+  @media print {
+    box-shadow: none;
+  }
+}
+
+.wrapper + .wrapper {
+  margin-top: 10%;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8.5in;
+  height: 11in;
+  background-color: white;
+  transform-origin: top left;
+
+  @media print {
+    transform: scale(1) !important;
+    position: fixed;
+  }
+}
