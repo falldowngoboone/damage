@@ -1,16 +1,19 @@
 import React from "react";
 import { Formik, Field, FieldArray } from "formik";
 import cx from "classnames";
+import format from "date-fns/format";
 
 import styles from "./NewInvoicePane.module.scss";
 
 export default function NewInvoicePane({ onData = () => {} }) {
+  const today = format(new Date(), "MMMM d, yyyy");
+
   return (
     <>
       <h1>New Invoice</h1>
       <Formik
         initialValues={{
-          date: Date.now(),
+          date: today,
           client: "",
           services: [],
           total: "",
@@ -30,11 +33,21 @@ export default function NewInvoicePane({ onData = () => {} }) {
             <form onSubmit={handleSubmit}>
               <div className={styles.inputGroup}>
                 <label htmlFor="date">Date</label>
-                <Field name="date" id="date" type="text" />
+                <Field
+                  className={styles.input}
+                  name="date"
+                  id="date"
+                  type="text"
+                />
               </div>
               <div className={styles.inputGroup}>
                 <label htmlFor="client">Client</label>
-                <Field name="client" id="client" component="select">
+                <Field
+                  className={styles.input}
+                  name="client"
+                  id="client"
+                  component="select"
+                >
                   <option disabled value="">
                     --Select a client--
                   </option>
@@ -58,6 +71,7 @@ export default function NewInvoicePane({ onData = () => {} }) {
                         ))}
                         <div className={styles.inputGroup}>
                           <button
+                            className={styles.input}
                             onClick={() => arrayHelpers.push("")}
                             type="button"
                           >
@@ -80,11 +94,17 @@ export default function NewInvoicePane({ onData = () => {} }) {
               </FieldArray>
               <div className={styles.inputGroup}>
                 <label htmlFor="total">Total</label>$
-                <Field type="text" id="total" name="total" />
+                <Field
+                  className={styles.input}
+                  type="text"
+                  id="total"
+                  name="total"
+                />
               </div>
               <div className={styles.inputGroup}>
                 <label htmlFor="notes">Additional Notes</label>
                 <Field
+                  className={styles.input}
                   name="notes"
                   id="notes"
                   cols="30"
@@ -108,7 +128,7 @@ function ServiceInput({ id, name, onRemove }) {
 
   return (
     <div className={classes}>
-      <Field id={id} name={name} type="text" />
+      <Field className={styles.input} id={id} name={name} type="text" />
       <button onClick={onRemove} type="button">
         -
       </button>

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@reach/router": "^1.2.1",
+    "date-fns": "^2.0.0-alpha.26",
     "formik": "^1.4.1",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",
